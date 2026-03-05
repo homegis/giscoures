@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>张老师 · 科研教学主页 | 某某大学</title>
+    <!-- 使用清爽的字体，学术风格 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300..700&family=Lora:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
+    <!-- Font Awesome 6 (免费图标) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "Inter", sans-serif;
+            background-color: #fafafa;
+            color: #1e2f4e;
+            line-height: 1.6;
+            scroll-behavior: smooth;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: "Lora", serif;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* 导航 */
+        nav {
+            background-color: #ffffffdd;
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            box-shadow: 0 2px 15px rgba(0, 20, 40, 0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid #e9ecf0;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo a {
+            font-family: "Lora", serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #0b2b4a;
+            text-decoration: none;
+            letter-spacing: -0.5px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #2c3f5c;
+            font-weight: 500;
+            font-size: 1rem;
+            transition: color 0.2s;
+            border-bottom: 2px solid transparent;
+            padding-bottom: 4px;
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            color: #a52c2c;
+            border-bottom-color: #a52c2c;
+        }
+
+        /* 按钮/招生突出显示 */
+        .enroll-btn {
+            background-color: #a52c2c;
+            color: white !important;
+            padding: 0.4rem 1.2rem !important;
+            border-radius: 40px;
+            font-weight: 600 !important;
+            border-bottom: none !important;
+        }
+        .enroll-btn:hover {
+            background-color: #7f2020;
+            color: white !important;
+        }
+
+        /* 头部横幅 */
+        .hero {
+            background: linear-gradient(145deg, #e9eef3 0%, #dfe6ed 100%);
+            padding: 3.5rem 0 4rem 0;
+            border-bottom: 1px solid #cfdbe8;
+        }
+
+        .hero-content {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 3rem;
+        }
+
+        .hero-text {
+            flex: 2;
+            min-width: 300px;
+        }
+
+        .hero-text h1 {
+            font-size: 3rem;
+            margin-bottom: 0.2rem;
+            color: #0a2647;
+        }
+
+        .hero-sub {
+            font-size: 1.3rem;
+            font-weight: 400;
+            color: #2d4c77;
+            margin-bottom: 1.2rem;
+            border-left: 5px solid #a52c2c;
+            padding-left: 1.2rem;
+        }
+
+        .hero-desc {
+            font-size: 1.15rem;
+            max-width: 650px;
+            color: #1d344b;
+            margin-bottom: 1.8rem;
+        }
+
+        .hero-avatar {
+            flex: 1;
+            min-width: 200px;
+            text-align: center;
+        }
+
+        .avatar-img {
+            width: 220px;
+            height: 220px;
+            border-radius: 50%;
+            object-fit: cover;
+            background: #b9c9dd;
+            border: 5px solid white;
+            box-shadow: 0 15px 25px -10px rgba(0,30,60,0.3);
+        }
+
+        .placeholder-avatar {
+            width: 220px;
+            height: 220px;
+            border-radius: 50%;
+            background: #1d3e6b;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto;
+            border: 5px solid white;
+            box-shadow: 0 15px 25px -10px rgba(0,0,0,0.2);
+            color: white;
+            font-size: 4rem;
+            font-weight: 600;
+            font-family: "Lora", serif;
+        }
+
+        .btn-group {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-top: 1.5rem;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.7rem 2rem;
+            border-radius: 40px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.2s ease;
+            background-color: white;
+            color: #1e2f4e;
+            border: 1.5px solid #bac9dc;
+        }
+
+        .btn-primary {
+            background-color: #a52c2c;
+            color: white;
+            border: 1.5px solid #a52c2c;
+        }
+
+        .btn-primary:hover {
+            background-color: #7f2020;
+            border-color: #7f2020;
+        }
+
+        .btn-outline:hover {
+            background-color: #ebf0f5;
+        }
+
+        /* 通用章节 */
+        section {
+            padding: 4.5rem 0;
+            border-bottom: 1px solid #e4eaf1;
+        }
+
+        .section-title {
+            font-size: 2.2rem;
+            margin-bottom: 2.5rem;
+            position: relative;
+            display: inline-block;
+        }
+        .section-title:after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 70px;
+            height: 3px;
+            background: #a52c2c;
+            border-radius: 2px;
+        }
+
+        /* 卡片网格 */
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 2rem;
+            margin-top: 1.5rem;
+        }
+
+        .card {
+            background: white;
+            border-radius: 24px;
+            padding: 2rem 1.5rem;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.02);
+            border: 1px solid #eef3f8;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 15px 30px rgba(30, 60, 90, 0.1);
+        }
+
+        .card-icon {
+            font-size: 2.5rem;
+            color: #a52c2c;
+            margin-bottom: 1.2rem;
+        }
+
+        .card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .card p, .card li {
+            color: #345073;
+        }
+
+        .tag-list {
+            list-style: none;
+            margin-top: 1rem;
+        }
+        .tag-list li {
+            display: inline-block;
+            background: #eef3f8;
+            padding: 0.2rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            margin: 0.2rem 0.2rem;
+        }
+
+        /* 科研列表 */
+        .pub-item {
+            display: flex;
+            gap: 1.5rem;
+            align-items: flex-start;
+            margin-bottom: 2rem;
+            background: white;
+            padding: 1.5rem 2rem;
+            border-radius: 20px;
+            border: 1px solid #e2eaf2;
+        }
+        .pub-year {
+            background: #a52c2c;
+            color: white;
+            font-weight: 700;
+            padding: 0.3rem 1.2rem;
+            border-radius: 40px;
+            font-size: 0.9rem;
+            white-space: nowrap;
+        }
+        .pub-detail h4 {
+            font-size: 1.3rem;
+            margin-bottom: 0.3rem;
+        }
+        .pub-detail .venue {
+            color: #556f8c;
+            font-style: italic;
+            margin-bottom: 0.5rem;
+        }
+
+        /* 招生特殊区域 */
+        .prospective-section {
+            background: linear-gradient(120deg, #f2f6fc, #e6edf7);
+            border-radius: 40px;
+            padding: 3rem;
+            margin-top: 2rem;
+            border: 1px solid #cbd8ea;
+        }
+
+        .prospect-flex {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 3rem;
+        }
+        .prospect-text {
+            flex: 2;
+        }
+        .prospect-text h3 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: #0a2647;
+        }
+        .prospect-list {
+            list-style: none;
+        }
+        .prospect-list li {
+            margin: 1rem 0;
+            font-size: 1.1rem;
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+        .prospect-list i {
+            color: #a52c2c;
+            font-size: 1.4rem;
+            width: 30px;
+        }
+        .prospect-btn {
+            background: #a52c2c;
+            color: white;
+            padding: 1rem 3rem;
+            font-size: 1.3rem;
+            border-radius: 60px;
+            font-weight: 700;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 1.5rem;
+            border: 2px solid #a52c2c;
+            transition: 0.2s;
+        }
+        .prospect-btn:hover {
+            background: white;
+            color: #a52c2c;
+        }
+
+        /* 页脚 */
+        footer {
+            background: #13273f;
+            color: #b4c7dd;
+            padding: 2rem 0;
+            text-align: center;
+        }
+        .footer-links {
+            margin-top: 1rem;
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+        .footer-links a {
+            color: #dde5ef;
+            text-decoration: none;
+            font-size: 0.95rem;
+        }
+        .footer-links a:hover {
+            color: white;
+        }
+
+        /* 响应式 */
+        @media (max-width: 650px) {
+            .nav-links { gap: 1rem; }
+            .hero-content { flex-direction: column; text-align: center; }
+            .hero-sub { border-left: none; }
+            .section-title:after { left: 50%; transform: translateX(-50%); width: 100px; }
+            .section-title { text-align: center; display: block; }
+            .pub-item { flex-direction: column; align-items: flex-start; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- 导航栏 / 品牌 -->
+<nav>
+    <div class="container nav-container">
+        <div class="logo"><a href="#home">张知行 · 实验室</a></div>
+        <div class="nav-links">
+            <a href="#home" class="active">首页</a>
+            <a href="#teaching">教学</a>
+            <a href="#research">科研</a>
+            <a href="#publications">论文</a>
+            <a href="#招生" class="enroll-btn"><i class="fas fa-graduation-cap" style="margin-right: 6px;"></i>招生</a>
+        </div>
+    </div>
+</nav>
+
+<!-- 主页部分: 教师简介 + 教学科研intro -->
+<section id="home" style="padding-top: 0;">
+    <!-- hero 个人介绍 -->
+    <div class="hero">
+        <div class="container hero-content">
+            <div class="hero-text">
+                <h1>张知行 教授</h1>
+                <div class="hero-sub">博士生导师 · 智能信息处理实验室主任</div>
+                <p class="hero-desc">
+                    某某大学 计算机科学与技术学院<br>
+                    研究方向：机器学习、多模态信息处理、AI for Science。  
+                    致力于培养有批判性思维和创新能力的学生，课题组气氛融洽，支持前沿探索。
+                </p>
+                <div class="btn-group">
+                    <a href="#research" class="btn btn-primary"><i class="fas fa-flask"></i> 研究方向</a>
+                    <a href="#招生" class="btn btn-outline"><i class="fas fa-user-plus"></i> 加入我们</a>
+                </div>
+            </div>
+            <div class="hero-avatar">
+                <!-- 头像占位 使用文字块模拟头像 -->
+                <div class="placeholder-avatar">张</div>
+                <!-- 如果是真实头像，可以用 <img class="avatar-img" src="yourphoto.jpg" alt="张老师"> -->
+            </div>
+        </div>
+    </div>
+
+    <!-- 简短教学+科研亮点卡片 (不用额外标题) -->
+    <div class="container" style="margin-top: -1rem;">
+        <div class="card-grid">
+            <div class="card">
+                <div class="card-icon"><i class="fas fa-chalkboard-teacher"></i></div>
+                <h3>教学</h3>
+                <p>主讲《机器学习》《数据科学导论》—— 连续三年评教前十。注重理论与实践结合，指导本科生国创项目6项。</p>
+            </div>
+            <div class="card">
+                <div class="card-icon"><i class="fas fa-microscope"></i></div>
+                <h3>科研</h3>
+                <p>主持国自然面上项目2项、重点研发子课题。在TPAMI、NeurIPS等发表论文40+篇，谷歌引用3000+。</p>
+            </div>
+            <div class="card">
+                <div class="card-icon"><i class="fas fa-users"></i></div>
+                <h3>招生</h3>
+                <p>每年招收2-3名博士生、3-4名硕士生。欢迎数学/编程基础好、自我驱动力强的同学加入！</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 教学 Teaching 板块 -->
+<section id="teaching">
+    <div class="container">
+        <h2 class="section-title">📖 教学 · 传承</h2>
+        <div style="display: flex; flex-wrap: wrap; gap: 3rem;">
+            <div style="flex: 2; min-width: 280px;">
+                <h3 style="font-size: 1.8rem; margin-bottom: 1rem;">课程与指导</h3>
+                <ul style="list-style-type: none;">
+                    <li style="margin-bottom: 1.2rem;"><i class="fas fa-check-circle" style="color: #a52c2c; margin-right: 12px;"></i> <strong>机器学习</strong> (本科生/研究生) —— 国家级一流课程</li>
+                    <li style="margin-bottom: 1.2rem;"><i class="fas fa-check-circle" style="color: #a52c2c; margin-right: 12px;"></i> <strong>数据科学导论</strong> (本科生) —— 智慧树平台开放课程</li>
+                    <li style="margin-bottom: 1.2rem;"><i class="fas fa-check-circle" style="color: #a52c2c; margin-right: 12px;"></i> <strong>学术论文写作</strong> (博士生) —— 从选题到投稿</li>
+                </ul>
+                <p style="background: #ebf0f5; padding: 1rem 2rem; border-radius: 40px; margin-top: 2rem;">
+                <i class="fas fa-star" style="color: #f5b342;"></i> 指导学生获得 "互联网+" 国赛金奖、微软学者、百度奖学金等。
+                </p>
+            </div>
+            <div style="flex: 1; background: #f4f8ff; border-radius: 30px; padding: 2rem;">
+                <h4><i class="fas fa-book-open"></i> 近期教学资源</h4>
+                <ul style="margin-top: 1rem; list-style: none;">
+                    <li style="margin-bottom: 1rem;">🔹 《机器学习》课件(2025春)</li>
+                    <li style="margin-bottom: 1rem;">🔹 数据科学实战代码仓库</li>
+                    <li style="margin-bottom: 1rem;">🔹 毕业设计选题指南</li>
+                </ul>
+                <p style="margin-top: 2rem;"><i class="fas fa-link"></i> 校内教学平台: <a href="#" style="color:#a52c2c;">课程中心</a></p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- 科研 Research + 代表论文 合并区域 -->
+<section id="research">
+    <div class="container">
+        <h2 class="section-title">🔬 科研 · 探索</h2>
+        <div class="card-grid" style="margin-bottom: 2.5rem;">
+            <div class="card">
+                <i class="fas fa-brain card-icon"></i>
+                <h3>多模态学习</h3>
+                <p>视觉语言预训练、跨模态生成与对齐。构建大规模医疗多模态数据集。</p>
+                <div class="tag-list"><li>#CVPR2025</li><li>#TPAMI</li></div>
+            </div>
+            <div class="card">
+                <i class="fas fa-chart-line card-icon"></i>
+                <h3>可信机器学习</h3>
+                <p>不确定性量化、分布外泛化。应用于药物分子性质预测。</p>
+                <div class="tag-list"><li>#NeurIPS</li><li>#ICML</li></div>
+            </div>
+            <div class="card">
+                <i class="fas fa-dna card-icon"></i>
+                <h3>AI for Science</h3>
+                <p>与物理、生物实验室合作，用AI加速材料筛选和蛋白质设计。</p>
+                <div class="tag-list"><li>#Nature子刊</li><li>#合作</li></div>
+            </div>
+        </div>
+
+        <!-- 代表性论文列表 (Publications) -->
+        <div id="publications" style="margin-top: 2rem;">
+            <h3 style="font-size: 1.9rem; margin-bottom: 1.5rem;">📄 近期代表论文</h3>
+            <div class="pub-item">
+                <span class="pub-year">2025</span>
+                <div class="pub-detail">
+                    <h4>MultiModal Fusion with Uncertainty Quantification for Medical Diagnosis</h4>
+                    <div class="venue">IEEE Transactions on Pattern Analysis and Machine Intelligence (TPAMI)</div>
+                    <div><strong>Zhang Z.X.</strong>, Li W., Chen J. et al.</div>
+                </div>
+            </div>
+            <div class="pub-item">
+                <span class="pub-year">2024</span>
+                <div class="pub-detail">
+                    <h4>Learning Invariant Representations via Distributionally Robust Optimization</h4>
+                    <div class="venue">NeurIPS 2024 <span style="background: #fde6e6; padding: 0.2rem 0.8rem; border-radius: 40px; margin-left: 1rem;">Spotlight</span></div>
+                    <div><strong>Zhang Z.X.</strong>, Wang Y., Liu R.</div>
+                </div>
+            </div>
+            <div class="pub-item">
+                <span class="pub-year">2023</span>
+                <div class="pub-detail">
+                    <h4>Cross-modal Generative Pretraining for Few-shot Visual Recognition</h4>
+                    <div class="venue">ICCV 2023 (oral)</div>
+                    <div>Liu S., <strong>Zhang Z.X.</strong> (通讯), Brown T.</div>
+                </div>
+            </div>
+            <p style="text-align: right; margin-top: 1rem;"><a href="#" style="color:#a52c2c;">查看全部论文 →</a></p>
+        </div>
+    </div>
+</section>
+
+<!-- 招生宣传 Prospectives / 加入我们 -->
+<section id="招生" style="border-bottom: none;">
+    <div class="container">
+        <div class="prospective-section">
+            <div class="prospect-flex">
+                <div class="prospect-text">
+                    <h3><i class="fas fa-rocket" style="color: #a52c2c;"></i> 加入知行实验室</h3>
+                    <p style="font-size: 1.2rem; margin-bottom: 1.8rem;">每年招收博士生2名、硕士生3-4名，同时也欢迎本科生进组实习。</p>
+                    <ul class="prospect-list">
+                        <li><i class="fas fa-check-circle"></i> 面向人工智能、计算机、数学、自动化等相关专业</li>
+                        <li><i class="fas fa-check-circle"></i> 希望你：扎实的数理基础，熟练Python/Pytorch，对科研有热情</li>
+                        <li><i class="fas fa-check-circle"></i> 课题组支持：参加国际会议、 visiting scholar、产学研合作</li>
+                        <li><i class="fas fa-check-circle"></i> 提供有竞争力的助研津贴 + 顶级计算资源 (A100集群)</li>
+                    </ul>
+                    <a href="#" class="prospect-btn"><i class="fas fa-paper-plane"></i> 预报名 / 咨询</a>
+                </div>
+                <div style="flex:1; min-width:200px; background: rgba(255,255,240,0.5); border-radius: 30px; padding: 2rem; text-align: center;">
+                    <i class="fas fa-user-graduate" style="font-size: 4rem; color: #a52c2c;"></i>
+                    <p style="font-size: 1.3rem; font-weight: 600; margin: 1rem 0;">2026级招生</p>
+                    <p>截止日期: 2025年9月<br> 可发送简历/成绩单至<br> <strong>zhangzx@university.edu</strong></p>
+                    <p style="margin-top: 1rem;">📅 夏令营/预推免通知</p>
+                </div>
+            </div>
+        </div>
+        <!-- 招生宣传小标语 -->
+        <div style="text-align: center; margin: 3rem 0 2rem;">
+            <span style="background: #e0e9f5; padding: 0.5rem 2rem; border-radius: 60px;">🎓 近三年毕业生去向：腾讯AI Lab、阿里巴巴达摩院、卡内基梅隆大学博士后、初创公司CTO</span>
+        </div>
+    </div>
+</section>
+
+<!-- 页脚 联系信息 版权等 -->
+<footer>
+    <div class="container">
+        <p>© 2025 张知行 · 某某大学计算机科学与技术学院</p>
+        <p style="margin: 0.5rem 0;"><i class="fas fa-envelope"></i> zhangzx@university.edu  |  <i class="fas fa-phone"></i> 010-1234 5678  |  <i class="fas fa-map-pin"></i> 某某大学玉泉校区 智华楼409</p>
+        <div class="footer-links">
+            <a href="#">Google Scholar</a>
+            <a href="#">DBLP</a>
+            <a href="#">github.com/zhanglab</a>
+            <a href="#">实验室内部wiki</a>
+        </div>
+        <p style="margin-top: 1.5rem; font-size: 0.85rem;">本站用于教学科研介绍及招生宣传，欢迎链接。</p>
+    </div>
+</footer>
+
+<!-- 平滑滚动 + 活动导航 (非常轻量) -->
+<script>
+    (function() {
+        // 高亮当前section (简单实现)
+        const sections = document.querySelectorAll("section[id], #home");
+        const navLinks = document.querySelectorAll(".nav-links a");
+        window.addEventListener("scroll", () => {
+            let current = "";
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop - 100;
+                if (window.scrollY >= sectionTop) {
+                    current = section.getAttribute("id") || "home";
+                }
+            });
+            navLinks.forEach(link => {
+                link.classList.remove("active");
+                const href = link.getAttribute("href").replace("#", "");
+                if (href === current) link.classList.add("active");
+                // 单独处理招生按钮样式不覆盖active背景色(保持按钮色)
+                if (link.classList.contains("enroll-btn")) {
+                    if (href === current) link.style.borderBottom = "none";
+                    else link.style.borderBottom = "none";
+                }
+            });
+        });
+    })();
+</script>
+
+<!-- 注: 头像、内容均为占位，可根据实际情况替换 -->
+</body>
+</html>
